@@ -7,10 +7,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #f4f4f4;
         }
         .container {
             max-width: 800px;
@@ -51,4 +51,44 @@
 
     <div class="container">
         <!-- Display the image -->
-        <img src="https://lh4.googleusercontent.com/LSw6dsU4bnfXVwcdOUbZeUgnioKVp1BeMZIfnmY53vt3F-AuvAPm6mOzrRILynkJ9hrRhd_Gi
+        <img src="https://lh4.googleusercontent.com/LSw6dsU4bnfXVwcdOUbZeUgnioKVp1BeMZIfnmY53vt3F-AuvAPm6mOzrRILynkJ9hrRhd_Gi9eP3GA-QtcUzRk=w1280" alt="Payment Image">
+
+        <!-- Display UPI ID link -->
+        <div>
+            <h2 style="font-size: 24px; font-weight: bold;">Make Payment Using UPI</h2>
+            <p style="font-size: 18px;">Scan the QR code or use the UPI ID below:</p>
+            <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=YourName&mc=YourMerchantCode&tid=YourTransactionId&cu=INR" 
+               style="font-weight: bold; font-size: 20px; text-decoration: none; color: #007bff;">qr919820689840-6263@unionbankofindia</a>
+            <br><br>
+        </div>
+
+        <!-- Input amount and pay button -->
+        <div>
+            <input type="number" id="amountInput" placeholder="Enter Amount" />
+            <br><br>
+            <button id="payNowButton">Pay Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Payment logic when 'Pay Now' button is clicked
+        document.getElementById('payNowButton').onclick = function() {
+            const upiId = "qr919820689840-6263@unionbankofindia"; // UPI ID
+            const amount = document.getElementById('amountInput').value; // Amount from input
+            const message = "Payment for QR Code"; // Optional message
+
+            if (!amount || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+
+            // Construct UPI payment URI with the entered amount
+            const uri = `upi://pay?pa=${upiId}&pn=YourName&mc=YourMerchantCode&tid=YourTransactionId&am=${amount}&cu=INR&url=${message}`;
+
+            // Redirect to UPI payment
+            window.location.href = uri;
+        };
+    </script>
+
+</body>
+</html>
