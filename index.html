@@ -1,94 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay Now Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-        input[type="number"] {
-            padding: 10px;
-            font-size: 16px;
-            width: 200px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Images - Jakeria Cha Vighnaharta</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #FF7F00; /* Orange background */
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+
+    .link-button {
+      display: block;
+      margin: 15px 0;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      color: white;
+      background-color: #e65100;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .link-button:hover {
+      background-color: #bf360c;
+    }
+  </style>
 </head>
 <body>
-
-    <div class="container">
-        <!-- Display the image -->
-        <img src="https://lh4.googleusercontent.com/LSw6dsU4bnfXVwcdOUbZeUgnioKVp1BeMZIfnmY53vt3F-AuvAPm6mOzrRILynkJ9hrRhd_Gi9eP3GA-QtcUzRk=w1280" alt="Payment Image">
-
-        <!-- Display UPI ID link -->
-        <div>
-            <h2 style="font-size: 24px; font-weight: bold;">Make Payment Using UPI</h2>
-            <p style="font-size: 18px;">Scan the QR code or use the UPI ID below:</p>
-            <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=YourName&mc=YourMerchantCode&tid=YourTransactionId&cu=INR" 
-               style="font-weight: bold; font-size: 20px; text-decoration: none; color: #007bff;">qr919820689840-6263@unionbankofindia</a>
-            <br><br>
-        </div>
-
-        <!-- Input amount and pay button -->
-        <div>
-            <input type="number" id="amountInput" placeholder="Enter Amount" />
-            <br><br>
-            <button id="payNowButton">Pay Now</button>
-        </div>
-    </div>
-
-    <script>
-        // Payment logic when 'Pay Now' button is clicked
-        document.getElementById('payNowButton').onclick = function() {
-            const upiId = "qr919820689840-6263@unionbankofindia"; // UPI ID
-            const amount = document.getElementById('amountInput').value; // Amount from input
-            const message = "Payment for QR Code"; // Optional message
-
-            if (!amount || amount <= 0) {
-                alert("Please enter a valid amount.");
-                return;
-            }
-
-            // Construct UPI payment URI with the entered amount
-            const uri = `upi://pay?pa=${upiId}&pn=YourName&mc=YourMerchantCode&tid=YourTransactionId&am=${amount}&cu=INR&url=${message}`;
-
-            // Redirect to UPI payment
-            window.location.href = uri;
-        };
-    </script>
-
+  <div class="container">
+    <h1>प्रतिमा विभाग</h1>
+    <a href="https://sites.google.com/view/jakeriachavighnaharta/images/%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%A8" class="link-button" target="_blank">२०२२</a>
+    <a href="https://sites.google.com/view/jakeriachavighnaharta/images/%E0%A4%86%E0%A4%97%E0%A4%AE%E0%A4%A8-%E0%A4%B8%E0%A4%B9%E0%A4%B3-%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%A9" class="link-button" target="_blank">आगमन सोहळा - २०२३</a>
+    <a href="https://sites.google.com/view/jakeriachavighnaharta/images/%E0%A4%86%E0%A4%97%E0%A4%AE%E0%A4%A8-%E0%A4%B8%E0%A4%B9%E0%A4%B3-%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%AA" class="link-button" target="_blank">आगमन सोहळा २०२४</a>
+  </div>
 </body>
 </html>
