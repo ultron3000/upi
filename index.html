@@ -25,43 +25,50 @@
             word-break: break-all;
         }
         .container {
-            max-height: 100vh;
-            overflow: hidden;
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="bg-white rounded-xl shadow-xl w-full max-w-xs p-4 mx-auto">
-            <!-- Logo -->
-            <div class="flex justify-center mb-3">
-                <img src="https://i.postimg.cc/tTW5BYQw/JB-logo.jpg" alt="Logo" class="w-14 h-14 object-contain">
+        <div class="bg-white rounded-xl shadow-xl w-full p-6">
+            <!-- Title -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-bold text-orange-700">जकेरियाचा विघ्नहर्ता</h1>
             </div>
 
             <!-- QR Code -->
-            <div class="flex justify-center mb-3">
-                <img src="https://i.postimg.cc/T1c5YNs2/QR-code-1-2305843009213921244.png" alt="UPI QR Code" class="qr-code w-48 h-48 rounded-lg">
+            <div class="flex justify-center mb-6">
+                <img src="https://i.postimg.cc/T1c5YNs2/QR-code-1-2305843009213921244.png" alt="UPI QR Code" class="qr-code w-full max-w-[280px] h-auto rounded-lg">
             </div>
 
             <!-- UPI ID -->
-            <div class="text-center mb-4">
+            <div class="text-center mb-6">
                 <p class="text-sm text-gray-600 mb-1">UPI ID:</p>
                 <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXNID123&cu=INR" 
-                   class="upi-link text-orange-600 font-medium text-xs hover:underline">
+                   class="upi-link text-orange-600 font-medium text-sm hover:underline break-all">
                     qr919820689840-6263@unionbankofindia
                 </a>
             </div>
 
             <!-- Payment Buttons -->
-            <div class="space-y-2">
-                <button onclick="payNowFixed()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200 text-sm">
-                    Pay Now
+            <div class="space-y-4">
+                <button onclick="payNowFixed()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-lg transition duration-200 text-lg">
+                    Pay Now (No Amount)
                 </button>
                 
                 <input type="number" id="amountInput" placeholder="Enter Amount (₹)" 
-                       class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm">
+                       class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-orange-500 text-lg">
                 
-                <button onclick="payNowAmount()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200 text-sm">
+                <button onclick="payNowAmount()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-3 px-4 rounded-lg transition duration-200 text-lg">
                     Pay Now with Amount
                 </button>
             </div>
