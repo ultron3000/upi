@@ -13,6 +13,9 @@
             min-height: 100vh;
             padding: 0;
             margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .qr-code {
             border: 8px solid white;
@@ -21,42 +24,47 @@
         .upi-link {
             word-break: break-all;
         }
+        .container {
+            max-height: 100vh;
+            overflow: hidden;
+        }
     </style>
 </head>
-<body class="flex items-center justify-center p-4">
-    <div class="bg-white rounded-xl shadow-xl w-full max-w-sm p-5">
-        <!-- Logo and Title -->
-        <div class="flex flex-col items-center mb-4">
-            <img src="https://i.postimg.cc/tTW5BYQw/JB-logo.jpg" alt="Logo" class="w-16 h-16 object-contain">
-            <h1 class="text-xl font-bold text-orange-700 mt-2">जकेरियाचा विघ्नहर्ता</h1>
-        </div>
+<body>
+    <div class="container">
+        <div class="bg-white rounded-xl shadow-xl w-full max-w-xs p-4 mx-auto">
+            <!-- Logo -->
+            <div class="flex justify-center mb-3">
+                <img src="https://i.postimg.cc/tTW5BYQw/JB-logo.jpg" alt="Logo" class="w-14 h-14 object-contain">
+            </div>
 
-        <!-- QR Code -->
-        <div class="flex justify-center mb-4">
-            <img src="https://i.postimg.cc/T1c5YNs2/QR-code-1-2305843009213921244.png" alt="UPI QR Code" class="qr-code w-56 h-56 rounded-lg">
-        </div>
+            <!-- QR Code -->
+            <div class="flex justify-center mb-3">
+                <img src="https://i.postimg.cc/T1c5YNs2/QR-code-1-2305843009213921244.png" alt="UPI QR Code" class="qr-code w-48 h-48 rounded-lg">
+            </div>
 
-        <!-- UPI ID -->
-        <div class="text-center mb-5">
-            <p class="text-sm text-gray-600">UPI ID:</p>
-            <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXNID123&cu=INR" 
-               class="upi-link text-orange-600 font-medium text-sm hover:underline">
-                qr919820689840-6263@unionbankofindia
-            </a>
-        </div>
+            <!-- UPI ID -->
+            <div class="text-center mb-4">
+                <p class="text-sm text-gray-600 mb-1">UPI ID:</p>
+                <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXNID123&cu=INR" 
+                   class="upi-link text-orange-600 font-medium text-xs hover:underline">
+                    qr919820689840-6263@unionbankofindia
+                </a>
+            </div>
 
-        <!-- Payment Buttons -->
-        <div class="space-y-3">
-            <button onclick="payNowFixed()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
-                Pay Now (No Amount)
-            </button>
-            
-            <input type="number" id="amountInput" placeholder="Enter Amount (₹)" 
-                   class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
-            
-            <button onclick="payNowAmount()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
-                Pay Now with Amount
-            </button>
+            <!-- Payment Buttons -->
+            <div class="space-y-2">
+                <button onclick="payNowFixed()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200 text-sm">
+                    Pay Now
+                </button>
+                
+                <input type="number" id="amountInput" placeholder="Enter Amount (₹)" 
+                       class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500 text-sm">
+                
+                <button onclick="payNowAmount()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200 text-sm">
+                    Pay Now with Amount
+                </button>
+            </div>
         </div>
     </div>
 
