@@ -4,115 +4,60 @@
     <meta charset="UTF-8">
     <title>जकेरियाचा विघ्नहर्ता</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
         body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #ff9800, #ff5722);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 15px;
             min-height: 100vh;
+            padding: 0;
+            margin: 0;
         }
-
-        .container {
-            background: #fff;
-            color: #333;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            padding: 30px 20px;
-            max-width: 420px;
-            width: 100%;
-            text-align: center;
+        .qr-code {
+            border: 8px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-
-        .logo {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            font-size: 22px;
-            margin: 10px 0 20px;
-            color: #d84315;
-        }
-
-        img.qr {
-            max-width: 250px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .upi-id {
-            font-size: 16px;
-            margin: 10px 0;
-        }
-
-        .upi-id a {
-            font-weight: bold;
-            color: #ff5722;
-            text-decoration: none;
+        .upi-link {
             word-break: break-all;
-        }
-
-        input[type="number"] {
-            padding: 10px;
-            font-size: 16px;
-            width: 100%;
-            margin-bottom: 12px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        button {
-            padding: 12px 20px;
-            font-size: 16px;
-            background-color: #ff5722;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            margin-bottom: 10px;
-        }
-
-        button:hover {
-            background-color: #e64a19;
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                padding: 20px 15px;
-            }
         }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-sm p-5">
+        <!-- Logo and Title -->
+        <div class="flex flex-col items-center mb-4">
+            <img src="https://i.postimg.cc/tTW5BYQw/JB-logo.jpg" alt="Logo" class="w-16 h-16 object-contain">
+            <h1 class="text-xl font-bold text-orange-700 mt-2">जकेरियाचा विघ्नहर्ता</h1>
+        </div>
 
-    <div class="container">
-        <img src="https://i.postimg.cc/tTW5BYQw/JB-logo.jpg" alt="Logo" class="logo">
-        <h1>जकेरियाचा विघ्नहर्ता</h1>
+        <!-- QR Code -->
+        <div class="flex justify-center mb-4">
+            <img src="https://i.postimg.cc/T1c5YNs2/QR-code-1-2305843009213921244.png" alt="UPI QR Code" class="qr-code w-56 h-56 rounded-lg">
+        </div>
 
-        <img src="https://i.postimg.cc/T1c5YNs2/QR-code-1-2305843009213921244.png" alt="UPI QR Code" class="qr">
-
-        <div class="upi-id">
-            UPI ID:<br>
-            <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXNID123&cu=INR">
+        <!-- UPI ID -->
+        <div class="text-center mb-5">
+            <p class="text-sm text-gray-600">UPI ID:</p>
+            <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXNID123&cu=INR" 
+               class="upi-link text-orange-600 font-medium text-sm hover:underline">
                 qr919820689840-6263@unionbankofindia
             </a>
         </div>
 
-        <!-- Fixed Pay Now Button -->
-        <button onclick="payNowFixed()">Pay Now (No Amount)</button>
-
-        <!-- Amount-based Pay -->
-        <input type="number" id="amountInput" placeholder="Enter Amount (INR)">
-        <button onclick="payNowAmount()">Pay Now with Amount</button>
+        <!-- Payment Buttons -->
+        <div class="space-y-3">
+            <button onclick="payNowFixed()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
+                Pay Now (No Amount)
+            </button>
+            
+            <input type="number" id="amountInput" placeholder="Enter Amount (₹)" 
+                   class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
+            
+            <button onclick="payNowAmount()" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition duration-200">
+                Pay Now with Amount
+            </button>
+        </div>
     </div>
 
     <script>
@@ -137,6 +82,5 @@
             window.location.href = uri;
         }
     </script>
-
 </body>
 </html>
