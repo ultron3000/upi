@@ -1,58 +1,142 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Images - Jakeria Cha Vighnaharta</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #FF7F00; /* Orange background */
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <title>जकेरियाचा विघ्नहर्ता</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            min-height: 100vh;
+        }
 
-    .container {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-      text-align: center;
-    }
+        .container {
+            background: #fff;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px 20px;
+            max-width: 420px;
+            width: 100%;
+            text-align: center;
+        }
 
-    h1 {
-      margin-bottom: 30px;
-      font-size: 2em;
-    }
+        .logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
 
-    .link-button {
-      display: block;
-      margin: 15px 0;
-      padding: 15px 25px;
-      font-size: 1.2em;
-      color: white;
-      background-color: #e65100;
-      border: none;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
+        h1 {
+            font-size: 22px;
+            margin: 10px 0 20px;
+            color: #d84315;
+        }
 
-    .link-button:hover {
-      background-color: #bf360c;
-    }
-  </style>
+        img.qr {
+            max-width: 250px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .upi-id {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        .upi-id a {
+            font-weight: bold;
+            color: #ff5722;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button:hover {
+            background-color: #e64a19;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>प्रतिमा विभाग</h1>
-    <a href="https://sites.google.com/view/jakeriachavighnaharta/images/%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%A8" class="link-button" target="_blank">२०२२</a>
-    <a href="https://sites.google.com/view/jakeriachavighnaharta/images/%E0%A4%86%E0%A4%97%E0%A4%AE%E0%A4%A8-%E0%A4%B8%E0%A4%B9%E0%A4%B3-%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%A9" class="link-button" target="_blank">आगमन सोहळा - २०२३</a>
-    <a href="https://sites.google.com/view/jakeriachavighnaharta/images/%E0%A4%86%E0%A4%97%E0%A4%AE%E0%A4%A8-%E0%A4%B8%E0%A4%B9%E0%A4%B3-%E0%A5%A8%E0%A5%A6%E0%A5%A8%E0%A5%AA" class="link-button" target="_blank">आगमन सोहळा २०२४</a>
-  </div>
+
+    <div class="container">
+        <img src="https://i.postimg.cc/tTW5BYQw/JB-logo.jpg" alt="Logo" class="logo">
+        <h1>जकेरियाचा विघ्नहर्ता</h1>
+
+        <img src="https://i.postimg.cc/T1c5YNs2/QR-code-1-2305843009213921244.png" alt="UPI QR Code" class="qr">
+
+        <div class="upi-id">
+            UPI ID:<br>
+            <a href="upi://pay?pa=qr919820689840-6263@unionbankofindia&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXNID123&cu=INR">
+                qr919820689840-6263@unionbankofindia
+            </a>
+        </div>
+
+        <!-- Fixed Pay Now Button -->
+        <button onclick="payNowFixed()">Pay Now (No Amount)</button>
+
+        <!-- Amount-based Pay -->
+        <input type="number" id="amountInput" placeholder="Enter Amount (INR)">
+        <button onclick="payNowAmount()">Pay Now with Amount</button>
+    </div>
+
+    <script>
+        function payNowFixed() {
+            const upiId = "qr919820689840-6263@unionbankofindia";
+            const message = "Donation to जकेरियाचा विघ्नहर्ता";
+            const uri = `upi://pay?pa=${upiId}&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXN0001&cu=INR&tn=${encodeURIComponent(message)}`;
+            window.location.href = uri;
+        }
+
+        function payNowAmount() {
+            const upiId = "qr919820689840-6263@unionbankofindia";
+            const amount = document.getElementById('amountInput').value;
+            const message = "Donation to जकेरियाचा विघ्नहर्ता";
+
+            if (!amount || amount <= 0) {
+                alert("Please enter a valid amount.");
+                return;
+            }
+
+            const uri = `upi://pay?pa=${upiId}&pn=जकेरियाचा विघ्नहर्ता&mc=0000&tid=TXN0002&am=${amount}&cu=INR&tn=${encodeURIComponent(message)}`;
+            window.location.href = uri;
+        }
+    </script>
+
 </body>
 </html>
